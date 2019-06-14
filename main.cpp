@@ -10,6 +10,7 @@
  */
 
 #include "distortos/board/initializeStreams.hpp"
+#include "distortos/board/standardOutputStream.h"
 
 #include "distortos/ThisThread.hpp"
 
@@ -26,6 +27,8 @@
 int main()
 {
 	distortos::board::initializeStreams();
+
+	fiprintf(standardOutputStream, "Started %s board\r\n", DISTORTOS_BOARD);
 
 	while (1)
 		distortos::ThisThread::sleepFor(std::chrono::seconds{1});
