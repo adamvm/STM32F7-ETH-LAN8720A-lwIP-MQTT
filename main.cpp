@@ -9,6 +9,8 @@
  * distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
+#include "distortos/board/initializeStreams.hpp"
+
 #include "distortos/ThisThread.hpp"
 
 /*---------------------------------------------------------------------------------------------------------------------+
@@ -23,6 +25,8 @@
 
 int main()
 {
+	distortos::board::initializeStreams();
+
 	while (1)
 		distortos::ThisThread::sleepFor(std::chrono::seconds{1});
 }
