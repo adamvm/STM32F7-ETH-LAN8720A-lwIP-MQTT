@@ -7,3 +7,6 @@
 [submodule "STM32F7xx_HAL_Driver-integration"]
 	path = STM32F7xx_HAL_Driver-integration
 	url = https://github.com/DISTORTEC/STM32F7xx_HAL_Driver-integration.git
+[submodule "lwIP"]
+	path = lwIP
+	url = https://git.savannah.nongnu.org/git/lwip.git
