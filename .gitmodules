@@ -1,3 +1,6 @@
 [submodule "distortos"]
 	path = distortos
 	url = https://github.com/DISTORTEC/distortos.git
+[submodule "STM32F7xx_HAL_Driver"]
+	path = STM32F7xx_HAL_Driver
+	url = https://github.com/DISTORTEC/STM32F7xx_HAL_Driver.git
