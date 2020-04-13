@@ -17,6 +17,14 @@ project(STM32F7-ETH-LAN8720A-lwIP-MQTT)
 add_subdirectory(distortos)
 
 #-----------------------------------------------------------------------------------------------------------------------
+# STM32F7xx_HAL_Driver library
+#-----------------------------------------------------------------------------------------------------------------------
+
+set(STM32F7XX_HAL_DRIVER_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}/STM32F7xx_HAL_Driver")
+set(STM32F7XX_HAL_DRIVER_CONFIGURATION_H_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}")
+add_subdirectory(STM32F7xx_HAL_Driver-integration)
+
+#-----------------------------------------------------------------------------------------------------------------------
 # STM32F7-ETH-LAN8720A-lwIP-MQTT application
 #-----------------------------------------------------------------------------------------------------------------------
 
@@ -25,7 +33,8 @@ add_executable(STM32F7-ETH-LAN8720A-lwIP-MQTT
 target_compile_features(STM32F7-ETH-LAN8720A-lwIP-MQTT PRIVATE
 		cxx_std_17)
 target_link_libraries(STM32F7-ETH-LAN8720A-lwIP-MQTT PRIVATE
-		distortos::distortos)
+		distortos::distortos
+		STM32F7xx_HAL_Driver)
 distortosTargetLinkerScripts(STM32F7-ETH-LAN8720A-lwIP-MQTT $ENV{DISTORTOS_LINKER_SCRIPT})
 
 distortosBin(STM32F7-ETH-LAN8720A-lwIP-MQTT STM32F7-ETH-LAN8720A-lwIP-MQTT.bin)
