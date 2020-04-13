@@ -4,3 +4,6 @@
 [submodule "STM32F7xx_HAL_Driver"]
 	path = STM32F7xx_HAL_Driver
 	url = https://github.com/DISTORTEC/STM32F7xx_HAL_Driver.git
+[submodule "STM32F7xx_HAL_Driver-integration"]
+	path = STM32F7xx_HAL_Driver-integration
+	url = https://github.com/DISTORTEC/STM32F7xx_HAL_Driver-integration.git
