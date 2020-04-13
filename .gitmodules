@@ -10,3 +10,6 @@
 [submodule "lwIP"]
 	path = lwIP
 	url = https://git.savannah.nongnu.org/git/lwip.git
+[submodule "lwIP-integration"]
+	path = lwIP-integration
+	url = https://github.com/DISTORTEC/lwIP-integration.git
