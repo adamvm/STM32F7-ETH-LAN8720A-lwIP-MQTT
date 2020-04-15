@@ -22,6 +22,53 @@
 #include "lwip/netif.h"
 #include "lwip/tcpip.h"
 
+namespace
+{
+
+/*---------------------------------------------------------------------------------------------------------------------+
+| local functions
++---------------------------------------------------------------------------------------------------------------------*/
+
+/**
+ * \brief Link callback for network interface
+ *
+ * \param [in] netif is a pointer to network interface for which the link state changed
+ */
+
+void netifLinkCallback(netif* const netif)
+{
+	fiprintf(standardOutputStream, "netifLinkCallback: netif = %c%c%" PRIu8 ", link = %s\r\n",
+			netif->name[0], netif->name[1], netif->num, netif_is_link_up(netif) != 0 ? "up" : "down");
+}
+
+/**
+ * \brief Status callback for network interface
+ *
+ * \param [in] netif is a pointer to network interface for which the status changed
+ */
+
+void netifStatusCallback(netif* const netif)
+{
+	const auto linkUp = netif_is_link_up(netif) != 0;
+	const auto statusUp = netif_is_up(netif) != 0;
+	fiprintf(standardOutputStream, "netifStatusCallback: netif = %c%c%" PRIu8 ", link = %s, status = %s\r\n",
+			netif->name[0], netif->name[1], netif->num, linkUp == true ? "up" : "down",
+			statusUp == true ? "up" : "down");
+
+	if (linkUp == false || statusUp == false)
+		return;
+
+	char buffer[IP4ADDR_STRLEN_MAX];
+	fiprintf(standardOutputStream, "  ip4 = %s\r\n",
+			ip4addr_ntoa_r(netif_ip4_addr(netif), buffer, sizeof(buffer)));
+	fiprintf(standardOutputStream, "  gateway = %s\r\n",
+			ip4addr_ntoa_r(netif_ip4_gw(netif), buffer, sizeof(buffer)));
+	fiprintf(standardOutputStream, "  netmask = %s\r\n",
+			ip4addr_ntoa_r(netif_ip4_netmask(netif), buffer, sizeof(buffer)));
+}
+
+}	// namespace
+
 /*---------------------------------------------------------------------------------------------------------------------+
 | global functions
 +---------------------------------------------------------------------------------------------------------------------*/
@@ -56,6 +103,8 @@ int main()
 			assert(ret != nullptr);
 		}
 
+		netif_set_link_callback(&networkInterface, netifLinkCallback);
+		netif_set_status_callback(&networkInterface, netifStatusCallback);
 		netif_set_default(&networkInterface);
 		netif_set_up(&networkInterface);
 
