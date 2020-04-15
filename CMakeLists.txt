@@ -39,6 +39,7 @@ add_subdirectory(lwIP-integration)
 #-----------------------------------------------------------------------------------------------------------------------
 
 add_executable(STM32F7-ETH-LAN8720A-lwIP-MQTT
+		ethernetInterfaceInitialize.cpp
 		main.cpp)
 target_compile_features(STM32F7-ETH-LAN8720A-lwIP-MQTT PRIVATE
 		cxx_std_17)
