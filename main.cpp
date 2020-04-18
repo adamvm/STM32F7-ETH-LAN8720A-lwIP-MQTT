@@ -324,7 +324,7 @@ int main()
 		assert(ret > 0 && ret == sizeof(clientId) - 1);
 	}
 
-	fiprintf(standardOutputStream, "MqttManager::threadFunction: client ID = \"%s\"\r\n", clientId);
+	fiprintf(standardOutputStream, "MQTT client ID is \"%s\"\r\n", clientId);
 
 	mqttClient.connectionInfo.client_id = clientId;
 	mqttClient.connectionInfo.client_user = {};

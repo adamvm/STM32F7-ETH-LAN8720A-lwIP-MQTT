@@ -181,8 +181,7 @@ parameters: 115200 bps, 8N1. Below you will find the example of the output from 
 [2020-04-18 11:50:00] sending DNS request ID 12585 for name "broker.hivemq.com" to server 0
 [2020-04-18 11:50:00] dns_recv: "broker.hivemq.com": response = 52.28.220.48
 [2020-04-18 11:50:00] broker.hivemq.com is 52.28.220.48
-[2020-04-18 11:50:00] MqttManager::threadFunction:
-                      client ID = "ST,32F746GDISCOVERY-004400203035510239363937"
+[2020-04-18 11:50:00] MQTT client ID is "ST,32F746GDISCOVERY-004400203035510239363937"
 [2020-04-18 11:50:00] mqtt_client_connect: Connecting to host: 52.28.220.48 at port:1883
 [2020-04-18 11:50:00] Connecting to MQTT broker...
 [2020-04-18 11:50:00] mqtt_tcp_connect_cb: TCP connection established to server
