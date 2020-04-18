@@ -240,6 +240,15 @@ extern "C"
 #define MEM_SIZE								(10 * 1024)
 
 /**
+ * MEMP_NUM_SYS_TIMEOUT: the number of simultaneously active timeouts.
+ *
+ * The default number of timeouts is calculated here for all enabled modules. The formula expects settings to be either
+ * '0' or '1'.
+ */
+
+#define MEMP_NUM_SYS_TIMEOUT					(LWIP_NUM_SYS_TIMEOUT_INTERNAL + 1)
+
+/**
  * SO_REUSE==1: Enable SO_REUSEADDR option.
  */
 
