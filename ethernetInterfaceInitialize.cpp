@@ -56,7 +56,62 @@ ETH_HandleTypeDef ethernetHandle;
 /// pin initializers for ETH
 const distortos::chip::PinInitializer ethPinInitializers[]
 {
-#if defined(DISTORTOS_BOARD_ST_NUCLEO_F767ZI)
+#if defined(DISTORTOS_BOARD_ST_32F746GDISCOVERY)
+		// RMII_REF_CLK
+		distortos::chip::makeAlternateFunctionPinInitializer(distortos::chip::Pin::pa1,
+				distortos::chip::PinAlternateFunction::af11,
+				false,
+				distortos::chip::PinOutputSpeed::veryHigh,
+				distortos::chip::PinPull::none),
+		// RMII_MDIO
+		distortos::chip::makeAlternateFunctionPinInitializer(distortos::chip::Pin::pa2,
+				distortos::chip::PinAlternateFunction::af11,
+				false,
+				distortos::chip::PinOutputSpeed::veryHigh,
+				distortos::chip::PinPull::none),
+		// RMII_MII_CRS_DV
+		distortos::chip::makeAlternateFunctionPinInitializer(distortos::chip::Pin::pa7,
+				distortos::chip::PinAlternateFunction::af11,
+				false,
+				distortos::chip::PinOutputSpeed::veryHigh,
+				distortos::chip::PinPull::none),
+		// RMII_MDC
+		distortos::chip::makeAlternateFunctionPinInitializer(distortos::chip::Pin::pc1,
+				distortos::chip::PinAlternateFunction::af11,
+				false,
+				distortos::chip::PinOutputSpeed::veryHigh,
+				distortos::chip::PinPull::none),
+		// RMII_MII_RXD0
+		distortos::chip::makeAlternateFunctionPinInitializer(distortos::chip::Pin::pc4,
+				distortos::chip::PinAlternateFunction::af11,
+				false,
+				distortos::chip::PinOutputSpeed::veryHigh,
+				distortos::chip::PinPull::none),
+		// RMII_MII_RXD1
+		distortos::chip::makeAlternateFunctionPinInitializer(distortos::chip::Pin::pc5,
+				distortos::chip::PinAlternateFunction::af11,
+				false,
+				distortos::chip::PinOutputSpeed::veryHigh,
+				distortos::chip::PinPull::none),
+		// RMII_MII_TX_EN
+		distortos::chip::makeAlternateFunctionPinInitializer(distortos::chip::Pin::pg11,
+				distortos::chip::PinAlternateFunction::af11,
+				false,
+				distortos::chip::PinOutputSpeed::veryHigh,
+				distortos::chip::PinPull::none),
+		// RMII_MII_TXD0
+		distortos::chip::makeAlternateFunctionPinInitializer(distortos::chip::Pin::pg13,
+				distortos::chip::PinAlternateFunction::af11,
+				false,
+				distortos::chip::PinOutputSpeed::veryHigh,
+				distortos::chip::PinPull::none),
+		// RMII_MII_TXD1
+		distortos::chip::makeAlternateFunctionPinInitializer(distortos::chip::Pin::pg14,
+				distortos::chip::PinAlternateFunction::af11,
+				false,
+				distortos::chip::PinOutputSpeed::veryHigh,
+				distortos::chip::PinPull::none),
+#elif defined(DISTORTOS_BOARD_ST_NUCLEO_F767ZI)
 		// RMII_REF_CLK
 		distortos::chip::makeAlternateFunctionPinInitializer(distortos::chip::Pin::pa1,
 				distortos::chip::PinAlternateFunction::af11,
