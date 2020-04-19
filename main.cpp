@@ -19,6 +19,7 @@
 #include "distortos/chip/OutputPin.hpp"
 #include "distortos/chip/uniqueDeviceId.hpp"
 
+#include "distortos/assert.h"
 #include "distortos/distortosVersion.h"
 #include "distortos/ThisThread.hpp"
 
